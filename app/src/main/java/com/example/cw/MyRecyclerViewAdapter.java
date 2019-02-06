@@ -2,6 +2,7 @@ package com.example.cw;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -19,6 +20,9 @@ Context context;
 ArrayList<MyDataSet> arrayList=new ArrayList<>();
 
 
+
+
+
     public MyRecyclerViewAdapter(Context context,ArrayList<MyDataSet> arrayList) {
         this.context = context;
         this.arrayList=arrayList;
@@ -29,8 +33,14 @@ ArrayList<MyDataSet> arrayList=new ArrayList<>();
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
        View view= LayoutInflater.from(context).inflate(R.layout.chats_resource,viewGroup,false);
 
+
+
+
         return new MyViewHolder(view);
     }
+
+
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
