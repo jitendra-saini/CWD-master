@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBManager
 
 
@@ -51,9 +54,13 @@ public class DBManager
       public Cursor fetch(){
 
         String[] columns=new String[]{Mydb.ID,Mydb.NAME,Mydb.INFO};
-        Cursor cursor=sqLiteDatabase.query(Mydb.TABLE_NAME,columns,null,
-                null,null,null,null);
+             Cursor cursor=sqLiteDatabase.query(Mydb.TABLE_NAME,columns,null,
+                null,null,null,Mydb.NAME);
       if(cursor!=null){
+
+
+
+
           cursor.moveToFirst();
       }
 
@@ -75,6 +82,12 @@ public class DBManager
       public void delete(long id){
 
            sqLiteDatabase.delete(Mydb.TABLE_NAME,Mydb.ID+"="+id,null);
+
+      }
+      public void delete_by_name(String name){
+
+
+          sqLiteDatabase.delete(Mydb.TABLE_NAME,Mydb.NAME+"="+name,null);
 
       }
 

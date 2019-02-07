@@ -24,8 +24,7 @@ public class Mydb extends SQLiteOpenHelper {
     //create table
 
 
-    public static final String CREATE_TABLE="create table"+TABLE_NAME+"("+ID+
-            "INTEGER PRIMARY KEY AUTOINCREAMENT,"+NAME+"TEXT NOT NULL,"+INFO+"TEXT);";
+    public static final String CREATE_TABLE="create table "+TABLE_NAME+"("+ID+ " INTEGER PRIMARY KEY AUTOINCREMENT,"+NAME+" TEXT NOT NULL,"+INFO+" TEXT);";
 
 
 

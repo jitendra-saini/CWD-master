@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DataList"></activity>
+        <activity android:name=".Add"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter></activity>
+        <activity android:name=".DataList" />
         <activity android:name=".Mess_win" />
         <activity android:name=".MySettings" />
         <activity

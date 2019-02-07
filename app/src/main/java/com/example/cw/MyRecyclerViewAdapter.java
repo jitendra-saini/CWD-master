@@ -7,6 +7,7 @@ import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +18,25 @@ import java.util.ArrayList;
 
 class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder> {
 Context context;
+DBManager dbManager;
+    ArrayList<Contact_Details> list = new ArrayList<>();
 ArrayList<MyDataSet> arrayList=new ArrayList<>();
 
 
+    public MyRecyclerViewAdapter(Context context, ArrayList<Contact_Details> list) {
+        this.context = context;
+        this.list = list;
+    }
 
 
-
+/*
     public MyRecyclerViewAdapter(Context context,ArrayList<MyDataSet> arrayList) {
         this.context = context;
         this.arrayList=arrayList;
     }
+*/
+
+
 
     @NonNull
     @Override
@@ -44,11 +54,19 @@ ArrayList<MyDataSet> arrayList=new ArrayList<>();
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
-        myViewHolder.textView.setText(arrayList.get(i).getContact());
+
+
+
+
+        Log.e("value","gg"+list.get(i).getName());
+
+            myViewHolder.textView.setText(list.get(i).getName());
+            myViewHolder.textView2.setText(list.get(i).getMess());
+     /*   myViewHolder.textView.setText(arrayList.get(i).getContact());
         myViewHolder.imageView.setImageResource(arrayList.get(i).getImage());
         myViewHolder.textView1.setText(arrayList.get(i).getTime());
         myViewHolder.textView2.setText(arrayList.get(i).getNewMessage());
-
+*/
 
 
     }
@@ -57,7 +75,7 @@ ArrayList<MyDataSet> arrayList=new ArrayList<>();
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return list.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
